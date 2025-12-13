@@ -84,3 +84,59 @@ export const editMember = async (req, res) => {
     res.status(500).json({ error: "Failed to update member" });
   }
 };
+/*GET all Trainers*/
+export const getTrainers = async (req, res) => {
+  try {
+    const trainers = await User.find({ role: "trainer" }).select("-password");
+    res.json(trainers);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch trainers" });
+  }
+};
+
+/*ADD new trainer*/
+export const createTrainer = async (req, res) => {
+  try {
+    const { name, email, password, coachingType, phone } = req.body;
+
+    if (!name || !email || !password) {
+      return res.status(400).json({ error: "Required fields missing" });
+    }
+
+    const exists = await User.findOne({ email });
+    if (exists) return res.status(400).json({ error: "Email already exists" });
+
+    const hashed = await bcrypt.hash(password, 10);
+
+    const trainer = await User.create({
+      name,
+      email,
+      password: hashed,
+      role: "trainer",
+      coachingType,
+      phone,
+    });
+
+    res.status(201).json(trainer);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to create trainer" });
+  }
+};
+/*EDIT trainer*/
+export const updateTrainer = async (req, res) => {
+  try {
+    const trainer = await User.findOneAndUpdate(
+      { _id: req.params.id, role: "trainer" },
+      req.body,
+      { new: true }
+    ).select("-password");
+
+    if (!trainer) {
+      return res.status(404).json({ error: "Trainer not found" });
+    }
+
+    res.json(trainer);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to update trainer" });
+  }
+};
