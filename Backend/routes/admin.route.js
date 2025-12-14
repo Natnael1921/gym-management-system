@@ -6,6 +6,8 @@ import {
   getTrainers,
   createTrainer,
   updateTrainer,
+  markAttendance,
+  getWeeklyAttendance,
 } from "../controllers/admin.controller.js";
 
 import { requireAuth, requireRole } from "../middleware/authMiddleWare.js";
@@ -25,4 +27,7 @@ router.get("/trainers", getTrainers);
 router.post("/trainers", createTrainer);
 router.put("/trainers/:id", updateTrainer);
 
+// attendance
+router.post("/attendance/mark", markAttendance);
+router.get("/attendance/week", getWeeklyAttendance);
 export default router;

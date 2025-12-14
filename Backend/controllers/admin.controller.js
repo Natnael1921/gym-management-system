@@ -1,4 +1,6 @@
 import User from "../models/user.model.js";
+import Attendance from "../models/attendance.model.js";
+
 import bcrypt from "bcryptjs";
 
 /*GET all members*/
@@ -138,5 +140,58 @@ export const updateTrainer = async (req, res) => {
     res.json(trainer);
   } catch (err) {
     res.status(500).json({ error: "Failed to update trainer" });
+  }
+};
+
+/* MARK attendance */
+export const markAttendance = async (req, res) => {
+  try {
+    const { userId, date, present } = req.body;
+
+    if (!userId || !date) {
+      return res.status(400).json({ error: "userId and date required" });
+    }
+
+    const attendance = await Attendance.findOneAndUpdate(
+      { userId, date: new Date(date) },
+      { present },
+      { upsert: true, new: true }
+    );
+
+    res.json({
+      message: "Attendance saved",
+      attendance,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to mark attendance" });
+  }
+};
+//GET attendance
+export const getWeeklyAttendance = async (req, res) => {
+  try {
+    const { startDate, role } = req.query;
+
+    if (!startDate || !role) {
+      return res.status(400).json({ error: "startDate and role required" });
+    }
+
+    const start = new Date(startDate);
+    const end = new Date(start);
+    end.setDate(start.getDate() + 7);
+
+    const users = await User.find({ role }).select("_id name");
+
+    const attendance = await Attendance.find({
+      date: { $gte: start, $lt: end },
+    });
+
+    res.json({
+      users,
+      attendance,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to fetch attendance" });
   }
 };
