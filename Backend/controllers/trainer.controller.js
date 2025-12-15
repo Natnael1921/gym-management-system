@@ -1,5 +1,6 @@
 import User from "../models/user.model.js";
 import Attendance from "../models/attendance.model.js";
+import Request from "../models/trainerRequest.model.js";
 
 //get trainer dashboard
 export const getTrainerDashboard = async (req, res) => {
@@ -43,5 +44,66 @@ export const getTrainerTrainees = async (req, res) => {
     res.json(trainees);
   } catch (err) {
     res.status(500).json({ error: "Failed to fetch trainees" });
+  }
+};
+
+//GET trainer requests
+export const getTrainerRequests = async (req, res) => {
+  try {
+    const trainerId = req.user.id;
+    const requests = await Request.find({
+      trainerId,
+      status: "pending",
+    }).populate("memberId", "name phone");
+    res.json(requests);
+  } catch (err) {
+    res.status(500).json({ error: "failed to fetch requests" });
+  }
+};
+
+//APPROVE request
+export const approveRequest = async (req, res) => {
+  try {
+    const trainerId = req.user.id;
+    const requestId = req.params.id;
+    const request = await Request.findOne({
+      _id: requestId,
+      trainerId,
+      status: "pending",
+    });
+    if (!request) {
+      return res.status(404).json({ error: "Request not found" });
+    }
+    // assign trainer to member
+    await User.findByIdAndUpdate(request.memberId, {
+      trainerId,
+    });
+
+    request.status = "approved";
+    await request.save();
+
+    res.json({ message: "Request approved" });
+  } catch (err) {
+    res.status(500).json({ error: "Failed to approve request" });
+  }
+};
+
+//REJECT request
+export const rejectRequest = async (req, res) => {
+  try {
+    const trainerId = req.user.id;
+    const requestId = req.params.id;
+    const request = await Request.findOne({
+      _id: requestId,
+      trainerId,
+      status: "pending",
+    });
+    if (!request) {
+      return res.status(404).json({ error: "Request not found" });
+    }
+    request.status = "rejected";
+    await request.save();
+  } catch (err) {
+    res.status(500).json({ error: "Failed to reject request" });
   }
 };
