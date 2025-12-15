@@ -107,3 +107,57 @@ export const rejectRequest = async (req, res) => {
     res.status(500).json({ error: "Failed to reject request" });
   }
 };
+
+//GET weekly trainer attendance
+export const getTrainerWeeklyAttendance = async (req, res) => {
+  try {
+    const trainerId = req.user.id;
+    const { startDate } = req.query;
+
+    if (!startDate) {
+      return res.status(400).json({ error: "startDate is required" });
+    }
+
+    const start = new Date(startDate);
+    const end = new Date(start);
+    end.setDate(start.getDate() + 7);
+
+    const attendance = await Attendance.find({
+      userId: trainerId,
+      date: { $gte: start, $lt: end },
+    });
+
+    res.json(attendance);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch weekly attendance" });
+  }
+};
+
+//GET monthly trainer attendance
+export const getTrainerMonthlyAttendance = async (req, res) => {
+  try {
+    const trainerId = req.user.id;
+
+    const startOfMonth = new Date();
+    startOfMonth.setDate(1);
+    startOfMonth.setHours(0, 0, 0, 0);
+
+    const totalDays = await Attendance.countDocuments({
+      userId: trainerId,
+      date: { $gte: startOfMonth },
+    });
+
+    const presentDays = await Attendance.countDocuments({
+      userId: trainerId,
+      present: true,
+      date: { $gte: startOfMonth },
+    });
+
+    res.json({
+      totalDays,
+      presentDays,
+    });
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch monthly attendance" });
+  }
+};
