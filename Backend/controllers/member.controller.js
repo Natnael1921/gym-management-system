@@ -1,4 +1,5 @@
 import User from "../models/user.model.js";
+import Attendance from "../models/attendance.model.js";
 
 //GET member profile
 export const getMyProfile = async (req, res) => {
@@ -14,5 +15,20 @@ export const getMyProfile = async (req, res) => {
     res.json(member);
   } catch (err) {
     res.status(500).json({ error: "Failed to load profile" });
+  }
+};
+
+//GET member attendance
+export const getMyAttendance = async (req, res) => {
+  try {
+    const attendance = await Attendance.find({
+      userId: req.user.id,
+    })
+      .sort({ date: -1 });
+
+    res.json(attendance);
+  } catch (err) {
+    console.error("Get attendance error:", err);
+    res.status(500).json({ error: "Server error" });
   }
 };
