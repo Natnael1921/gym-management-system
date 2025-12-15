@@ -6,6 +6,7 @@ import {
   requestTrainer,
   getMySchedule,
   updateMySchedule,
+  updateMyProfile,
 } from "../controllers/member.controller.js";
 import { requireAuth, requireRole } from "../middleware/authMiddleWare.js";
 
@@ -19,5 +20,6 @@ router.get("/trainers", getTrainers);
 router.post("/request-trainer", requestTrainer);
 router.get("/schedule", getMySchedule);
 router.put("/schedule", updateMySchedule);
+router.patch("/profile", updateMyProfile);
 
 export default router;

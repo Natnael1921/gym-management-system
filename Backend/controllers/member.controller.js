@@ -107,7 +107,7 @@ export const updateMySchedule = async (req, res) => {
     await Schedule.deleteMany({ memberId: req.user.id });
 
     // insert new schedule
-    const newSchedules = schedules.map(item => ({
+    const newSchedules = schedules.map((item) => ({
       memberId: req.user.id,
       day: item.day,
       workout: item.workout,
@@ -118,6 +118,27 @@ export const updateMySchedule = async (req, res) => {
     res.json({ message: "Schedule updated successfully" });
   } catch (err) {
     console.error("Update schedule error:", err);
+    res.status(500).json({ error: "Server error" });
+  }
+};
+
+//UPDATE member profile
+export const updateMyProfile = async (req, res) => {
+  try {
+    const { height, weight } = req.body;
+
+    const updated = await User.findByIdAndUpdate(
+      req.user.id,
+      { height, weight },
+      { new: true }
+    ).select("height weight");
+
+    res.json({
+      message: "Profile updated",
+      profile: updated,
+    });
+  } catch (err) {
+    console.error("Update profile error:", err);
     res.status(500).json({ error: "Server error" });
   }
 };
