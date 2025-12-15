@@ -3,7 +3,9 @@ import {
   getMyProfile,
   getMyAttendance,
   getTrainers,
-  requestTrainer
+  requestTrainer,
+  getMySchedule,
+  updateMySchedule,
 } from "../controllers/member.controller.js";
 import { requireAuth, requireRole } from "../middleware/authMiddleWare.js";
 
@@ -15,5 +17,7 @@ router.get("/me", getMyProfile);
 router.get("/attendance", getMyAttendance);
 router.get("/trainers", getTrainers);
 router.post("/request-trainer", requestTrainer);
+router.get("/schedule", getMySchedule);
+router.put("/schedule", updateMySchedule);
 
 export default router;
