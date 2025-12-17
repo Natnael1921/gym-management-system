@@ -14,35 +14,6 @@
   flex-direction: column;
 }
 
-/* NAVBAR */
-.landing-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 60px;
-}
-
-.logo {
-  color: #2f80ff;
-  font-size: 24px;
-}
-
-.nav-actions {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.nav-actions a {
-  color: white;
-  font-size: 14px;
-}
-
-.login-btn {
-  background: #2f80ff;
-  padding: 8px 18px;
-  border-radius: 6px;
-}
 
 /* HERO */
 .hero {

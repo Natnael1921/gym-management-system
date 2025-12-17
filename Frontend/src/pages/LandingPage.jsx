@@ -1,21 +1,13 @@
 import { Link } from "react-router-dom";
 import "../styles/landing.css";
+import Navbar from "../components/Navbar";
 
 function LandingPage() {
   return (
     <div className="landing">
       <div className="overlay">
         {/* NAVBAR */}
-        <nav className="landing-nav">
-          <h2 className="logo">FitClub</h2>
-
-          <div className="nav-actions">
-            <a href="#contact">Contact Us</a>
-            <Link to="/login" className="login-btn">
-              Log In
-            </Link>
-          </div>
-        </nav>
+        <Navbar />
 
         {/* HERO */}
         <div className="hero">
