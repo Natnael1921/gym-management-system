@@ -8,6 +8,7 @@ import MemberDashboard from "./pages/member/MemberDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminMembers from "./pages/admin/AdminMembers";
 import AdminTrainers from "./pages/admin/AdminTrainers";
+import AdminAttendance from "./pages/admin/AdminAttendance";
 
 function App() {
   return (
@@ -40,6 +41,14 @@ function App() {
             element={
               <ProtectedRoute role="admin">
                 <AdminTrainers />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/attendance"
+            element={
+              <ProtectedRoute role="admin">
+                <AdminAttendance />
               </ProtectedRoute>
             }
           />

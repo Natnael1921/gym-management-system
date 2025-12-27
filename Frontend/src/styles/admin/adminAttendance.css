@@ -1,0 +1,101 @@
+.admin-attendance {
+  color: #e5e7eb;
+}
+
+.admin-attendance .attendance-toggle {
+  display: flex;
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.admin-attendance .attendance-toggle button {
+  padding: 8px 24px;
+  border-radius: 20px;
+  border: 1px solid #333;
+  background: #1a1a1a;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.admin-attendance .attendance-toggle button.active {
+  background: #fff;
+  color: #000;
+}
+
+.admin-attendance .week-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 20px;
+  color: #aaa;
+}
+
+.admin-attendance .week-nav button {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.admin-attendance .attendance-table {
+  background: linear-gradient(145deg, #1c1c1c, #141414);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.admin-attendance .attendance-head {
+  display: grid;
+  grid-template-columns: 220px repeat(7, 1fr);
+  padding: 14px 18px;
+  color: #2f80ff;
+  border-bottom: 1px solid #2a2a2a;
+  position: sticky;
+  top: 0;
+  background: linear-gradient(145deg, #1c1c1c, #141414);
+  z-index: 2;
+}
+
+.admin-attendance .attendance-body {
+  max-height: 335px; 
+  overflow-y: auto;
+}
+
+.admin-attendance .attendance-row {
+  display: grid;
+  grid-template-columns: 220px repeat(7, 1fr);
+  padding: 14px 18px;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.admin-attendance .attendance-row:last-child {
+  border-bottom: none;
+}
+
+.admin-attendance .sticky-name {
+  position: sticky;
+  left: 0;
+  background: linear-gradient(145deg, #1c1c1c, #141414);
+  z-index: 1;
+  text-align: left;
+}
+
+.admin-attendance .attendance-row span,
+.admin-attendance .attendance-head span {
+  text-align: center;
+}
+
+.admin-attendance .attendance-cell {
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  height: 36px;
+  display: flex;
+  margin-right: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-attendance .attendance-cell.present {
+  color: #f5f5f5;
+}
