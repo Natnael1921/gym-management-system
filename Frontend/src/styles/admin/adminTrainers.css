@@ -1,0 +1,74 @@
+/* HEADER */
+.trainers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.trainers-header h1 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.add-trainer-btn {
+  background: #2f80ff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 9%;
+}
+
+.add-trainer-btn:hover {
+  opacity: 0.9;
+}
+
+/* TABLE */
+.trainers-table {
+  background: linear-gradient(145deg, #1c1c1c, #141414);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.table-head,
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr 1fr;
+  padding: 14px 18px;
+  font-size: 14px;
+}
+
+.table-head {
+  color: #2f80ff;
+  font-weight: 500;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.table-row {
+  border-bottom: 1px solid #2a2a2a;
+  color: #ddd;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.edit-link {
+  color: #aaa;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.edit-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* LOADING */
+.admin-loading {
+  padding: 40px;
+  color: #aaa;
+}

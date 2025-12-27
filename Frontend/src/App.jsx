@@ -6,6 +6,8 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import TrainerDashboard from "./pages/trainer/TrainerDashboard";
 import MemberDashboard from "./pages/member/MemberDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AdminMembers from "./pages/admin/AdminMembers";
+import AdminTrainers from "./pages/admin/AdminTrainers";
 
 function App() {
   return (
@@ -22,6 +24,22 @@ function App() {
             element={
               <ProtectedRoute role="admin">
                 <AdminDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/members"
+            element={
+              <ProtectedRoute role="admin">
+                <AdminMembers />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/trainers"
+            element={
+              <ProtectedRoute role="admin">
+                <AdminTrainers />
               </ProtectedRoute>
             }
           />
