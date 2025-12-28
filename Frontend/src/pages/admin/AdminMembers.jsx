@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import API from "../../api/api";
 import "../../styles/admin/adminMembers.css";
+import AppLoader from "../../components/AppLoader";
 
 const AdminMembers = () => {
   const [members, setMembers] = useState([]);
@@ -100,16 +101,18 @@ const AdminMembers = () => {
     setShowModal(true);
   };
 
-  if (loading) {
-    return (
-      <div className="admin-dashboard">
-        <Sidebar role="admin" />
-        <div className="dashboard-content admin-loading">
-          Loading members...
-        </div>
+
+if (loading) {
+  return (
+    <div className="admin-dashboard">
+      <Sidebar role="admin" />
+      <div className="dashboard-content admin-loading">
+        <AppLoader text="Loading members..." />
       </div>
-    );
-  }
+    </div>
+  );
+}
+
 
   return (
     <div className={`admin-dashboard ${showModal ? "blurred" : ""}`}>

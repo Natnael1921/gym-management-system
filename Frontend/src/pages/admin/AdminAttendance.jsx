@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import API from "../../api/api";
 import "../../styles/admin/adminAttendance.css";
+import AppLoader from "../../components/AppLoader";
 
 const AdminAttendance = () => {
   const [role, setRole] = useState("member");
@@ -72,15 +73,15 @@ const AdminAttendance = () => {
   };
 
   if (loading) {
-    return (
-      <div className="admin-dashboard">
-        <Sidebar role="admin" />
-        <div className="dashboard-content admin-loading">
-          Loading attendance...
-        </div>
+  return (
+    <div className="admin-dashboard">
+      <Sidebar role="admin" />
+      <div className="dashboard-content admin-loading">
+        <AppLoader text="Loading attendance..." />
       </div>
-    );
-  }
+    </div>
+  );
+}
 
   return (
     <div className="admin-dashboard">

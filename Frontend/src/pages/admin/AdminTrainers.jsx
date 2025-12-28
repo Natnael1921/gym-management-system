@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import API from "../../api/api";
 import "../../styles/admin/adminTrainers.css";
+import AppLoader from "../../components/AppLoader";
 
 const AdminTrainers = () => {
   const [trainers, setTrainers] = useState([]);
@@ -87,16 +88,18 @@ const AdminTrainers = () => {
     setShowModal(true);
   };
 
-  if (loading) {
-    return (
-      <div className="admin-dashboard">
-        <Sidebar role="admin" />
-        <div className="dashboard-content admin-loading">
-          Loading trainers...
-        </div>
+if (loading) {
+  return (
+    <div className="admin-dashboard">
+      <Sidebar role="admin" />
+      <div className="dashboard-content admin-loading">
+        <AppLoader text="Loading trainers..." />
       </div>
-    );
-  }
+    </div>
+  );
+}
+
+
 
   return (
     <div className={`admin-dashboard ${showModal ? "blurred" : ""}`}>
