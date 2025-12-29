@@ -29,7 +29,7 @@ const LoginPage = () => {
       else if (user.role === "trainer") navigate("/trainer/dashboard");
       else navigate("/member/dashboard");
     } catch (err) {
-      setError(err.response?.data?.message || "Login failed");
+      setError(err.response?.data?.error || "Login failed");
     }
   };
 
