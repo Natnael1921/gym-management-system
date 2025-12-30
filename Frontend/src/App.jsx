@@ -9,6 +9,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import AdminMembers from "./pages/admin/AdminMembers";
 import AdminTrainers from "./pages/admin/AdminTrainers";
 import AdminAttendance from "./pages/admin/AdminAttendance";
+import MemberTrainers from "./pages/member/memberTrainers";
 
 function App() {
   return (
@@ -69,6 +70,14 @@ function App() {
             element={
               <ProtectedRoute role="member">
                 <MemberDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/member/trainers"
+            element={
+              <ProtectedRoute role="member">
+                <MemberTrainers />
               </ProtectedRoute>
             }
           />
