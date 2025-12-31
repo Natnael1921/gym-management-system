@@ -1,0 +1,143 @@
+.member-schedule-page {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #121212;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  padding-left: 18%;
+}
+
+.schedule-main {
+  flex: 1;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.schedule-main h2 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.schedule-top {
+  background-color: #181818;
+  padding: 14px 16px;
+  border-radius: 14px;
+}
+
+.schedule-header {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  padding-bottom: 8px;
+  margin-bottom: 6px;
+  color: #3b82f6;
+  font-size: 12px;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.schedule-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid #2a2a2a;
+  font-size: 12px;
+}
+
+.schedule-row:last-child {
+  border-bottom: none;
+}
+
+.schedule-row input {
+  background-color: #1f1f1f;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: white;
+  height: 28px;
+}
+
+.schedule-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.edit-schedule-btn,
+.save-btn,
+.cancel-btn {
+  background-color: #3F3F3F;
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  font-size: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.save-btn {
+  background-color: #2563eb;
+}
+
+.cancel-btn {
+  background-color: #444;
+}
+
+.edit-schedule-btn:hover,
+.save-btn:hover,
+.cancel-btn:hover {
+  opacity: 0.9;
+}
+
+.today-schedule {
+  background-color: #181818;
+  padding: 14px 16px;
+  border-radius: 14px;
+}
+
+.today-schedule h3 {
+  font-size: 14px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.today-card {
+  position: relative;
+  height: 140px;
+  border-radius: 14px;
+  background: url("/assets/workout-bg.jpg") center / cover no-repeat;
+  overflow: hidden;
+}
+
+.today-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.25)
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+}
+
+.today-overlay h4 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.member-loading {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error {
+  color: #ef4444;
+  font-size: 13px;
+}

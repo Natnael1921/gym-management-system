@@ -10,6 +10,7 @@ import AdminMembers from "./pages/admin/AdminMembers";
 import AdminTrainers from "./pages/admin/AdminTrainers";
 import AdminAttendance from "./pages/admin/AdminAttendance";
 import MemberTrainers from "./pages/member/memberTrainers";
+import MemberSchedule from "./pages/member/MemberSchedule";
 
 function App() {
   return (
@@ -78,6 +79,14 @@ function App() {
             element={
               <ProtectedRoute role="member">
                 <MemberTrainers />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/member/schedule"
+            element={
+              <ProtectedRoute role="member">
+                <MemberSchedule />
               </ProtectedRoute>
             }
           />
