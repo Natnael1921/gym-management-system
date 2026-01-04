@@ -12,6 +12,7 @@ import AdminAttendance from "./pages/admin/AdminAttendance";
 import MemberTrainers from "./pages/member/memberTrainers";
 import MemberSchedule from "./pages/member/MemberSchedule";
 import MemberAttendance from "./pages/member/MemberAttendance";
+import TrainerTrainees from "./pages/trainer/TrainerTrainees";
 
 function App() {
   return (
@@ -62,6 +63,14 @@ function App() {
             element={
               <ProtectedRoute role="trainer">
                 <TrainerDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/trainer/trainees"
+            element={
+              <ProtectedRoute role="trainer">
+                <TrainerTrainees />
               </ProtectedRoute>
             }
           />
