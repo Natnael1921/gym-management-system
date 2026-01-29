@@ -94,6 +94,7 @@
   margin-right: 5px;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .admin-attendance .attendance-cell.present {
