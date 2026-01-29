@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import API from "../../api/api";
 import Sidebar from "../../components/Sidebar";
 import AppLoader from "../../components/AppLoader";
-import "../../styles/member/memberTrainers.css";
+import "../../styles/Member/memberTrainers.css";
 
 const MemberTrainers = () => {
   const [trainers, setTrainers] = useState([]);

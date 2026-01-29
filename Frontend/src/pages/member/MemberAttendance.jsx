@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import API from "../../api/api";
 import AppLoader from "../../components/AppLoader";
-import "../../styles/member/memberAttendance.css";
+import "../../styles/Member/memberAttendance.css";
 
 const getStartOfWeek = (date) => {
   const d = new Date(date);

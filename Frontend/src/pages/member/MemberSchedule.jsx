@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import API from "../../api/api";
 import Sidebar from "../../components/Sidebar";
 import AppLoader from "../../components/AppLoader";
-import "../../styles/member/memberSchedule.css";
+import "../../styles/Member/memberSchedule.css";
 
 const DAYS = [
   "Monday",

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import API from "../../api/api";
-import "../../styles/member/memberDashboard.css";
+import "../../styles/Member/memberDashboard.css";
 import Sidebar from "../../components/Sidebar";
 
 const MemberDashboard = () => {
