@@ -9,7 +9,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import AdminMembers from "./pages/admin/AdminMembers";
 import AdminTrainers from "./pages/admin/AdminTrainers";
 import AdminAttendance from "./pages/admin/AdminAttendance";
-import MemberTrainers from "./pages/member/MemberTrainers";
+import MemberTrainers from "./pages/member/memberTrainers";
 import MemberSchedule from "./pages/member/MemberSchedule";
 import MemberAttendance from "./pages/member/MemberAttendance";
 import TrainerTrainees from "./pages/trainer/TrainerTrainees";
