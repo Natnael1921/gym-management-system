@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import API from "../../api/api";
 import AppLoader from "../../components/AppLoader";
-import "../../styles/member/memberDashboard.css";
+import "../../styles/trainer/trainerDashboard.css";
 
 const TrainerDashboard = () => {
   const [dashboard, setDashboard] = useState(null);
