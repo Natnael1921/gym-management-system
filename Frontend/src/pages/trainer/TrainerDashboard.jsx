@@ -65,17 +65,19 @@ const TrainerDashboard = () => {
       <Sidebar role="trainer" />
 
       <div className="dashboard-main">
+        {/* Header */}
         <div className="dashboard-header">
           <h2>Dashboard</h2>
           <span>Trainer</span>
         </div>
 
+        {/* Top row */}
         <div className="top-row">
           <div className="card welcome-card">
             <div className="icon">👤</div>
             <div className="info">
               <strong>{trainer?.name}</strong>
-              <p>{trainer?.coachingType || "Physical Fitness Coach"}</p>
+              <p>{trainer?.coachingType || "Physical fitness coach"}</p>
             </div>
           </div>
 
@@ -85,14 +87,16 @@ const TrainerDashboard = () => {
           </div>
 
           <div className="card stat-card">
-            <span>Pending Requests</span>
+            <span>Recent Requests</span>
             <h3>{requests.length}</h3>
           </div>
         </div>
 
+        {/* Bottom section */}
         <div className="bottom-section">
+          {/* Trainees list */}
           <div className="trainees-card card">
-            <span>Your Trainees</span>
+            <span>Your trainees</span>
             <ul>
               {trainees.length > 0
                 ? trainees.map((t) => <li key={t.id}>{t.name}</li>)
@@ -100,9 +104,11 @@ const TrainerDashboard = () => {
             </ul>
           </div>
 
+          {/* Right column */}
           <div className="right-column">
+            {/* Attendance */}
             <div className="attendance-card card">
-              <span>Attendance This Month</span>
+              <span>Attendance this month</span>
               <div className="circle">
                 <span>{attendancePercent}%</span>
               </div>
@@ -110,6 +116,7 @@ const TrainerDashboard = () => {
               <small>{dashboard.streak || 0} days streak</small>
             </div>
 
+            {/* Next session */}
             <div className="next-session card">
               <span>Next Training Session</span>
               <strong>
