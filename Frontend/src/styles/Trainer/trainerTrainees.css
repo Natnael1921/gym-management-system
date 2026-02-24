@@ -9,7 +9,6 @@
 .trainees-main {
   flex: 1;
   padding: 32px 250px;
-  
 }
 
 .loading {
@@ -101,4 +100,84 @@
 .empty {
   color: #9ca3af;
   margin-top: 40px;
+}
+/*  MOBILE & TABLET RESPONSIVE  */
+@media (max-width: 1024px) {
+  .trainees-main {
+    padding: 24px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .trainees-main {
+    padding: 16px;
+    padding-top: 20%;
+  }
+
+  /* Header */
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .page-header h2 {
+    font-size: 20px;
+  }
+
+  .role-label {
+    font-size: 12px;
+  }
+
+  .trainees-card {
+    padding: 16px;
+  }
+
+  .trainees-header {
+    display: none; 
+  }
+
+  .trainee-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px;
+    background: #1a1a1a;
+    border-radius: 10px;
+  }
+
+  .name-cell {
+    gap: 8px;
+  }
+
+  .avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .muted {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .trainees-main {
+    padding: 12px;
+    padding-top: 20%;
+  }
+
+  .trainee-row {
+    padding: 10px;
+    gap: 6px;
+  }
+
+  .avatar {
+    width: 28px;
+    height: 28px;
+  }
+
+  .muted {
+    font-size: 12px;
+  }
 }

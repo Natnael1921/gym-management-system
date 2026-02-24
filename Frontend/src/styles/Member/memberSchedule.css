@@ -4,7 +4,7 @@
   overflow: hidden;
   background-color: #121212;
   color: white;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   padding-left: 18%;
 }
 
@@ -69,7 +69,7 @@
 .edit-schedule-btn,
 .save-btn,
 .cancel-btn {
-  background-color: #3F3F3F;
+  background-color: #3f3f3f;
   border: none;
   color: white;
   padding: 6px 14px;
@@ -115,11 +115,7 @@
 .today-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.75),
-    rgba(0, 0, 0, 0.25)
-  );
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25));
   display: flex;
   align-items: flex-end;
   padding: 14px;
@@ -140,4 +136,236 @@
 .error {
   color: #ef4444;
   font-size: 13px;
+}
+/*  Member Schedule Page  */
+.member-schedule-page {
+  display: flex;
+  min-height: 100vh;
+  background-color: #121212;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  padding-left: 220px;
+  overflow-x: hidden;
+}
+
+.schedule-main {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.schedule-main h2 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* Weekly schedule */
+.schedule-top {
+  background-color: #181818;
+  padding: 16px;
+  border-radius: 14px;
+  overflow-x: auto;
+}
+
+.schedule-table {
+  width: 100%;
+}
+
+.schedule-header {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  padding-bottom: 8px;
+  margin-bottom: 6px;
+  color: #3b82f6;
+  font-size: 13px;
+  font-weight: 500;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.schedule-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid #2a2a2a;
+  font-size: 13px;
+}
+
+.schedule-row:last-child {
+  border-bottom: none;
+}
+
+.schedule-row input {
+  background-color: #1f1f1f;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 13px;
+  color: white;
+  height: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.edit-schedule-btn,
+.save-btn,
+.cancel-btn {
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.edit-schedule-btn {
+  background-color: #3f3f3f;
+}
+
+.save-btn {
+  background-color: #2563eb;
+}
+
+.cancel-btn {
+  background-color: #444;
+}
+
+.edit-schedule-btn:hover,
+.save-btn:hover,
+.cancel-btn:hover {
+  opacity: 0.9;
+}
+
+/* Today's schedule card */
+.today-schedule {
+  background-color: #181818;
+  padding: 16px;
+  border-radius: 14px;
+}
+
+.today-schedule h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.today-card {
+  position: relative;
+  height: 160px;
+  border-radius: 14px;
+  background: url("/assets/workout-bg.jpg") center / cover no-repeat;
+  overflow: hidden;
+}
+
+.today-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25));
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+}
+
+.today-overlay .today-day {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.today-overlay h4 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.member-loading {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error {
+  color: #ef4444;
+  font-size: 13px;
+}
+
+/*  Responsive  */
+@media (max-width: 900px) {
+  .member-schedule-page {
+    padding-left: 0;
+    padding-top: 20%;
+  }
+
+  .schedule-top {
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .schedule-header,
+  .schedule-row {
+    grid-template-columns: 120px 1fr;
+    font-size: 12px;
+  }
+
+  .schedule-row input {
+    height: 28px;
+    font-size: 12px;
+    padding: 4px 6px;
+  }
+
+  .edit-actions {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .today-card {
+    height: 140px;
+  }
+
+  .today-overlay {
+    padding: 12px;
+  }
+
+  .today-overlay h4 {
+    font-size: 16px;
+  }
+
+  .today-overlay .today-day {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .schedule-header,
+  .schedule-row {
+    grid-template-columns: 100px 1fr;
+    font-size: 11px;
+  }
+
+  .schedule-row input {
+    height: 26px;
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+
+  .today-card {
+    height: 120px;
+  }
+
+  .today-overlay h4 {
+    font-size: 14px;
+  }
+
+  .today-overlay .today-day {
+    font-size: 12px;
+  }
 }

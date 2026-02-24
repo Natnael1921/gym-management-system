@@ -100,3 +100,88 @@
 .admin-attendance .attendance-cell.present {
   color: #f5f5f5;
 }
+/* ===== Admin Attendance Responsiveness ===== */
+
+/* Tablet: 768px - 900px */
+@media (max-width: 900px) {
+  .admin-attendance .attendance-toggle {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-attendance .week-nav {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .admin-attendance .attendance-table {
+    overflow-x: auto;
+  }
+
+  .admin-attendance .attendance-head,
+  .admin-attendance .attendance-row {
+    grid-template-columns: 180px repeat(7, 1fr);
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+
+  .admin-attendance .attendance-cell {
+    height: 32px;
+    margin-right: 3px;
+  }
+}
+
+/* Mobile: 480px - 767px */
+@media (max-width: 767px) {
+  .admin-attendance .attendance-toggle {
+    flex-direction: column;
+    width: 40%;
+  }
+
+  .admin-attendance .attendance-toggle button {
+    width: 100%;
+    margin-bottom: 8px;
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .admin-attendance .week-nav {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 12px;
+  }
+
+  .admin-attendance .attendance-head,
+  .admin-attendance .attendance-row {
+    grid-template-columns: 140px repeat(7, 1fr);
+    padding: 10px 6px;
+    font-size: 12px;
+  }
+
+  .admin-attendance .attendance-cell {
+    height: 28px;
+  }
+}
+
+/*  small mobile: <480px */
+@media (max-width: 479px) {
+  .admin-attendance .attendance-head,
+  .admin-attendance .attendance-row {
+    grid-template-columns: 120px repeat(7, 1fr);
+    padding: 8px 5px;
+    font-size: 11px;
+  }
+
+  .admin-attendance .attendance-toggle button {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+
+  .admin-attendance .week-nav {
+    font-size: 11px;
+  }
+
+  .admin-attendance .attendance-cell {
+    height: 24px;
+  }
+}

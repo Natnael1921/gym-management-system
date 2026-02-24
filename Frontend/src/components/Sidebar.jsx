@@ -1,15 +1,16 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import "../styles/sidebar.css";
 
 const Sidebar = ({ role }) => {
   const { logout } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
 
   const handleLogout = () => {
     logout();
-    navigate("/"); 
+    navigate("/");
   };
 
   const linksByRole = {
@@ -36,25 +37,32 @@ const Sidebar = ({ role }) => {
   const links = linksByRole[role] || [];
 
   return (
-    <div className="sidebar">
-      <div className="sidebar-logo">FitClub</div>
-      <div className="sidebar-links">
-        {links.map((link) => (
-          <NavLink
-            key={link.path}
-            to={link.path}
-            className={({ isActive }) =>
-              `sidebar-link ${isActive ? "active-link" : ""}`
-            }
-          >
-            {link.name}
-          </NavLink>
-        ))}
-      </div>
-      <button className="sidebar-logout" onClick={handleLogout}>
-        Logout
+    <>
+      <button className="hamburger-btn" onClick={() => setOpen(!open)}>
+        {open ? "✕" : "☰"}
       </button>
-    </div>
+
+      <div className={`sidebar ${open ? "open" : ""}`}>
+        <div className="sidebar-logo">FitClub</div>
+        <div className="sidebar-links">
+          {links.map((link) => (
+            <NavLink
+              key={link.path}
+              to={link.path}
+              className={({ isActive }) =>
+                `sidebar-link ${isActive ? "active-link" : ""}`
+              }
+              onClick={() => setOpen(false)}
+            >
+              {link.name}
+            </NavLink>
+          ))}
+        </div>
+        <button className="sidebar-logout" onClick={handleLogout}>
+          Logout
+        </button>
+      </div>
+    </>
   );
 };
 

@@ -1,123 +1,233 @@
+/*  Member Dashboard  */
 .member-dashboard {
   display: flex;
+  flex-direction: column;
   min-height: 100vh;
   font-family: 'Poppins', sans-serif;
   background-color: #121212;
   color: white;
-  padding-left: 220px;
+  padding: 0;
 }
 
 .dashboard-main {
   flex: 1;
-  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  margin-left: 0; 
+  gap: 16px;
+  padding: 16px;
 }
 
-
-/* Top row */
-.top-row {
+/* Header */
+.dashboard-main > div:first-child {
   display: flex;
-  gap: 20px;
-  
-}
-
-.top-row .card {
-  flex: 1;
-  background: #1D1B1B;
-  border-radius: 14px;
-  padding: 50px 160px;
-  display: flex;
-  align-items: center;
   justify-content: space-between;
-  
+  align-items: center;
 }
 
-.welcome-card .icon {
-  font-size: 30px;
-  margin-right: 12px;
+.dashboard-main h2 {
+  font-size: 20px;
+  margin: 0;
 }
 
-.welcome-card .info strong {
-  display: block;
-  font-size: 18px;
-}
-
-.welcome-card .info p {
+.dashboard-main span {
   font-size: 14px;
   color: #94a3b8;
 }
 
-.trainer-card {
+/* Top row */
+.top-row {
+  display: flex;
   flex-direction: column;
-  text-align: right;
+  gap: 12px;
+}
+
+.top-row .card {
+  width: 100%;
+  background: #1D1B1B;
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.welcome-card {
+  display: flex;
+  align-items: center;
+}
+
+.welcome-card .icon {
+  font-size: 28px;
+  margin-right: 12px;
+}
+
+.welcome-card .info strong {
+  font-size: 16px;
+  display: block;
+}
+
+.welcome-card .info p {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.trainer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
 }
 
 .trainer-card span {
-  font-size: 14px;
+  font-size: 13px;
   color: #94a3b8;
 }
 
 /* Middle row */
 .middle-row {
   display: flex;
-  gap: 40px;
+  flex-direction: column;
+  gap: 1px;
 }
 
 .attendance-card {
-  flex: 1;
   background: #1D1B1B;
   border-radius: 14px;
-  padding: 20px;
+  padding: 16px;
   text-align: center;
 }
 
 .attendance-card .circle {
-  margin: 10px 0;
-  font-size: 24px;
+  margin: 18px 20%;
+  font-size: 20px;
   color: #3b82f6;
 }
 
 .stats {
-  flex: 1;
   display: flex;
   flex-direction: row;
-  gap: 5px;
+  gap: 12px;
+  justify-content: space-between;
 }
 
 .stat-card {
+  flex: 1;
   background: #1D1B1B;
   border-radius: 14px;
-  padding: 30px 40px;
+  padding: 16px;
   text-align: center;
-  height: 120px;
-  margin:3% 0% 0% 7%;
 }
 
 .stat-card span {
   color: #94a3b8;
+  font-size: 13px;
+}
+
+.stat-card h3 {
+  font-size: 16px;
+  margin: 4px 0 0;
 }
 
 /* Bottom row */
 .bottom-row {
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.membership-card, .schedule-today-card {
-  flex: 1;
-  border-radius: 14px;
-  padding: 20px;
+.membership-card,
+.schedule-today-card {
   background: #1D1B1B;
+  border-radius: 14px;
+  padding: 16px;
   text-align: center;
 }
 
 .schedule-today-card {
   background: url('/assets/schedule-bg.jpg') center/cover no-repeat;
+  background-size: cover;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  min-height: 100px;
+}
+
+/*  Responsive Breakpoints  */
+
+/* Tablet and above */
+@media (min-width: 480px) {
+  .top-row,
+  .middle-row,
+  .bottom-row {
+    flex-direction: row;
+  }
+
+  .top-row .card,
+  .attendance-card,
+  .stat-card,
+  .membership-card,
+  .schedule-today-card {
+    flex: 1;
+  }
+
+  .stats {
+    flex-direction: row;
+  }
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .dashboard-main {
+    padding: 24px;
+  }
+
+  .welcome-card .icon {
+    font-size: 32px;
+  }
+
+  .welcome-card .info strong {
+    font-size: 18px;
+  }
+
+  .welcome-card .info p {
+    font-size: 14px;
+  }
+
+  .stat-card h3 {
+    font-size: 18px;
+  }
+
+  .attendance-card .circle {
+    font-size: 24px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+  .member-dashboard {
+    flex-direction: row;
+    padding-left: 220px; 
+  }
+
+  .dashboard-main {
+    padding-left: 24px;
+    gap: 24px;
+  }
+
+  .top-row,
+  .middle-row,
+  .bottom-row {
+    gap: 20px;
+  }
+
+  .attendance-card .circle {
+    font-size: 28px;
+  }
+}
+@media (max-width: 768px){
+.member-dashboard{
+  padding-top: 100px;
+}
 }
